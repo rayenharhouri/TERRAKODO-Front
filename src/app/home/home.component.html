@@ -1,0 +1,60 @@
+<h2>Welcome to the Main Page</h2>
+
+<div class="section-container">
+    <div class="section task-list">
+        <h3>Open Tasks</h3>
+        <ul>
+            <li *ngFor="let task of tasks">
+                <div class="task-item">
+                    <h4>{{ task.title }}</h4>
+                    <p>Description: {{ task.description }}</p>
+                    <p>Priority: {{ task.priority }}</p>
+                    <p>Due Date: {{ task.dueDate }}</p>
+                    <div class="button-container">
+                        <button class="edit-button" (click)="editTask(task._id)">Edit</button>
+                        <button class="delete-button" (click)="deleteTask(task._id)">Delete</button>
+                        <button class="delete-button" (click)="updateState(task._id)">Move</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section task-list">
+        <h3>Tasks in Progress</h3>
+        <ul>
+            <li *ngFor="let task of inProgressTasks">
+                <div class="task-item">
+                    <h4>{{ task.title }}</h4>
+                    <p>Description: {{ task.description }}</p>
+                    <p>Priority: {{ task.priority }}</p>
+                    <p>Due Date: {{ task.dueDate }}</p>
+                    <div class="button-container">
+                        <button class="edit-button" (click)="editTask(task._id)">Edit</button>
+                        <button class="delete-button" (click)="deleteTask(task._id)">Delete</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section task-list">
+        <h3>Completed Tasks</h3>
+        <ul>
+            <li *ngFor="let task of completedTasks">
+                <div class="task-item">
+                    <h4>{{ task.title }}</h4>
+                    <p>Description: {{ task.description }}</p>
+                    <p>Priority: {{ task.priority }}</p>
+                    <p>Due Date: {{ task.dueDate }}</p>
+                    <div class="button-container">
+                        <button class="edit-button" (click)="editTask(task._id)">Edit</button>
+                        <button class="delete-button" (click)="deleteTask(task._id)">Delete</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<a [routerLink]="['/addTask']"><button class="add-task-button">Add Task</button></a>
